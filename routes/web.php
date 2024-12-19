@@ -30,4 +30,7 @@ Route::get('/blog' , function (){
 use App\Http\Controllers\testController;
 
 Route::get('/posts' ,[testController::class, 'index']);
-Route::get('/posts/{var}' ,[testController::class, 'schow']);
+Route::get('/posts/{var}' ,[testController::class, 'schow'])->name('table.schow');
+Route::get('/create', function (){
+    return "hy from create";
+});

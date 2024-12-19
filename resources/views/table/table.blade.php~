@@ -1,4 +1,4 @@
-@extends("Lyouts.app")
+@extends("layouts.app")
 @section("content")
     <div class="text-center mt-4">
         <button type="button" class="btn btn-success">Create New Post</button>
