@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="wpoceans">
-    <title>Hello world</title>
+    <title>@yield("title", "hello word")</title>
     <link href="assets/css/themify-icons.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/flaticon.css" rel="stylesheet">

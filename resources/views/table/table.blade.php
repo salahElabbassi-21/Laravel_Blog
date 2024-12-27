@@ -1,7 +1,10 @@
 @extends("Lyouts.app")
 @section("content")
+
     <div class="text-center mt-4">
-        <button type="button" class="btn btn-success">Create New Post</button>
+        <button type="button" class="btn btn-success">
+            <a href="{{route('table.action')}}" class="text-white text-decoration-none">Create New Post</a>
+        </button>
     </div>
 
     <table class="table">
@@ -19,12 +22,21 @@
             <tr>
                 <th scope="row">{{$post['id']}}</th>
                 <td>{{$post['title']}}</td>
-                <td>{{$post['post-by']}}</td>
-                <td>{{$post['crete-at']}}</td>
+                <td>{{$post['post_creator']}}</td>
+                <td>{{$post['created_at']}}</td>
+
 
                 <td><a href="{{route("table.schow",$post["id"])}}" class="btn btn-info">View</a>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a href="{{route("table.edit",$post["id"])}}" class="btn btn-primary">Edit</a>
+                    <form style="display:inline " action="{{route('table.destroy', $post['id'])}}" method="POST">
+                        @csrf
+                        @method("delete")
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
+
+
                 </td>
             </tr>
 

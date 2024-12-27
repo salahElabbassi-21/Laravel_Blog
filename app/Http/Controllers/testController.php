@@ -1,22 +1,52 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class testController extends Controller
 {
     public function index()
     {
-        $posts = [
-            ['id'=>1, 'title'=>"php", "post-by"=>"ahmad", "crete-at"=>"2023-10-15 09:04:10" ],
-            ['id'=>2, 'title'=>"js", "post-by"=>"salah", "crete-at"=>"2022-10-15 09:04:10" ],
-            ['id'=>3, 'title'=>"python", "post-by"=>"ziko", "crete-at"=>"2024-10-15 09:04:10" ],
-        ];
-      return view('table.table', compact("posts"));
+        $posts = Post::all();
+
+        // Pass the posts to the view
+        return view('table.table', compact("posts"));
     }
     public function schow()
     {
         return view("table.schow");
+    }
+
+    public function action()
+
+    {
+
+       return view("table.action");
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
+    {
+        $data = $request->all();
+       return redirect()->route('index');
+    }
+    public function edit(){
+        return view("table.edit");
+    }
+
+    public function update(Request $request)
+    {
+        $data = $request->all();
+
+        return redirect()->route('table.schow', 1);
+    }
+
+    public function destroy()
+    {
+        return to_route("index");
     }
 }

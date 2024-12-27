@@ -1,6 +1,7 @@
 
-
 @extends("layout")
+
+@section('title', 'Forum')
 
 
 @section("content")

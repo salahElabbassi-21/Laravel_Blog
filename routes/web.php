@@ -29,9 +29,10 @@ Route::get('/blog' , function (){
 
 use App\Http\Controllers\testController;
 
-Route::get('/posts' ,[testController::class, 'index']);
-Route::get('/posts/create', function (){
-    return "hy from create";
-});
+Route::get('/posts' ,[testController::class, 'index'])->name('index');
+Route::get('/posts/create', [testController::class ,"action"])->name('table.action');
+Route::post('/posts', [testController::class, 'store'])->name("table.store");
 Route::get('/posts/{var}' ,[testController::class, 'schow'])->name('table.schow');
-
+Route::get('/posts/{id}/edit', [testController::class, 'edit'])->name('table.edit');
+Route::put('posts/{post}' , [testController::class, 'update'])->name('table.update');
+Route::delete('posts/{post}' , [testController::class, 'destroy'])->name('table.destroy');
